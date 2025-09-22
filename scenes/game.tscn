@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs58ku1twhubx"]
+
+[ext_resource type="Script" uid="uid://b3g4mnvrcv515" path="res://scripts/carrot.gd" id="1_uwrxv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mwb40"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Carrot" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mwb40")
+script = ExtResource("1_uwrxv")
