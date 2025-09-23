@@ -1,10 +1,9 @@
-[gd_scene load_steps=20 format=4 uid="uid://bs58ku1twhubx"]
+[gd_scene load_steps=13 format=4 uid="uid://bs58ku1twhubx"]
 
 [ext_resource type="PackedScene" uid="uid://dkh1gk1q8qaip" path="res://scenes/killzone.tscn" id="1_u5sy4"]
-[ext_resource type="Script" uid="uid://6xnvvxok51af" path="res://scripts/carrot.gd" id="1_uwrxv"]
-[ext_resource type="Texture2D" uid="uid://cfnc6jitysku0" path="res://assets/sprites/knight.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cp5j7u27fhh8j" path="res://scenes/coin.tscn" id="3_iywne"]
 [ext_resource type="Texture2D" uid="uid://bmknp03ic7m37" path="res://assets/sprites/world_tileset.png" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://di0087qo8q4j8" path="res://scenes/carrot.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://8gtaij6uo40n" path="res://scenes/platform.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://olt5gd0pi0wn" path="res://scenes/slime.tscn" id="7_u5sy4"]
 
@@ -165,44 +164,21 @@ texture = ExtResource("3_lnu2h")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lnu2h"]
-atlas = ExtResource("1_yqjtg")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lbhrr"]
-atlas = ExtResource("1_yqjtg")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iywne"]
-atlas = ExtResource("1_yqjtg")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p57ef"]
-atlas = ExtResource("1_yqjtg")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mwb40"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lnu2h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lbhrr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iywne")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p57ef")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 10.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
-size = Vector2(16, 21)
+[sub_resource type="Animation" id="Animation_iywne"]
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(418, 7), Vector2(559, 7)]
+}
 
 [sub_resource type="Animation" id="Animation_lbhrr"]
 resource_name = "move_back_and_forward"
@@ -219,22 +195,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(418, 7), Vector2(558, 7)]
-}
-
-[sub_resource type="Animation" id="Animation_iywne"]
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.98),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(418, 7), Vector2(559, 7)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p57ef"]
@@ -261,26 +221,7 @@ tile_set = SubResource("TileSet_lbhrr")
 tile_map_data = PackedByteArray("AAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAANAAEAAAAAAAAAAAAOAAEAAAAAAAAAAAAKAAIAAAAAAAEAAAAKAAMAAAAAAAEAAAAKAAQAAAAAAAEAAAAKAAUAAAAAAAEAAAALAAUAAAAAAAEAAAALAAYAAAAAAAEAAAAKAAYAAAAAAAEAAAAMAAYAAAAAAAEAAAANAAYAAAAAAAEAAAAOAAYAAAAAAAEAAAAOAAUAAAAAAAEAAAAOAAQAAAAAAAEAAAANAAMAAAAAAAEAAAANAAIAAAAAAAEAAAAMAAIAAAAAAAEAAAAMAAMAAAAAAAEAAAALAAMAAAAAAAEAAAALAAQAAAAAAAEAAAALAAIAAAAAAAEAAAAMAAQAAAAAAAEAAAAMAAUAAAAAAAEAAAANAAUAAAAAAAEAAAANAAQAAAAAAAEAAAAOAAMAAAAAAAEAAAAOAAIAAAAAAAEAAAAMAAcAAAAAAAEAAAALAAcAAAAAAAEAAAALAAgAAAAAAAEAAAAMAAgAAAAAAAEAAAANAAgAAAAAAAEAAAAOAAgAAAAAAAEAAAAOAAcAAAAAAAEAAAANAAcAAAAAAAEAAAASAP//AAAGAAAAAAATAP//AAAGAAAAAAAUAP//AAAGAAAAAAAVAP//AAAGAAAAAAAWAAAAAAAGAAAAAAAXAAAAAAAGAAAAAAAYAAAAAAAGAAAAAAAVAAAAAAAGAAAAAAASAAAAAAAGAAEAAAASAAEAAAAGAAEAAAASAAIAAAAGAAEAAAATAAIAAAAGAAEAAAATAAEAAAAGAAEAAAATAAAAAAAGAAEAAAAUAAEAAAAGAAEAAAAUAAAAAAAGAAEAAAAUAAIAAAAGAAEAAAAVAAMAAAAGAAEAAAAVAAQAAAAGAAEAAAAWAAQAAAAGAAEAAAAWAAMAAAAGAAEAAAAWAAIAAAAGAAEAAAAVAAIAAAAGAAEAAAAVAAEAAAAGAAEAAAAWAAEAAAAGAAEAAAAXAAEAAAAGAAEAAAAYAAEAAAAGAAEAAAAYAAIAAAAGAAEAAAAXAAIAAAAGAAEAAAAXAAMAAAAGAAEAAAAYAAMAAAAGAAEAAAAYAAQAAAAGAAEAAAAXAAQAAAAGAAEAAAAkAAAAAAAEAAAAAAAlAAAAAAAEAAAAAAAmAAAAAAAEAAAAAAAnAAAAAAAEAAAAAAAoAAAAAAAEAAAAAAAoAP//AAAEAAAAAAApAP//AAAEAAAAAAAqAP//AAAEAAAAAAAkAAEAAAAEAAEAAAAkAAIAAAAEAAEAAAAkAAMAAAAEAAEAAAAlAAMAAAAEAAEAAAAlAAIAAAAEAAEAAAAlAAEAAAAEAAEAAAAmAAEAAAAEAAEAAAAnAAEAAAAEAAEAAAAoAAEAAAAEAAEAAAAnAAIAAAAEAAEAAAAmAAIAAAAEAAEAAAAoAAIAAAAEAAEAAAApAAIAAAAEAAEAAAApAAEAAAAEAAEAAAApAAAAAAAEAAEAAAAqAAAAAAAEAAEAAAAqAAEAAAAEAAEAAAD//wYAAAAAAAAAAAD//wcAAAAAAAEAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAEAAAABAAYAAAAAAAAAAAABAAcAAAAAAAEAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAACAAcAAAAAAAEAAAADAAUAAAAAAAAAAAADAAYAAAAAAAEAAAADAAcAAAAAAAEAAAAEAAUAAAAAAAAAAAAEAAYAAAAAAAEAAAAEAAcAAAAAAAEAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAEAAAAFAAcAAAAAAAEAAAD//wgAAAAAAAEAAAD//wkAAAAAAAEAAAAAAAgAAAAAAAEAAAAAAAkAAAAAAAEAAAABAAgAAAAAAAEAAAABAAkAAAAAAAEAAAACAAgAAAAAAAEAAAACAAkAAAAAAAEAAAADAAgAAAAAAAEAAAADAAkAAAAAAAEAAAAEAAgAAAAAAAEAAAAEAAkAAAAAAAEAAAAFAAgAAAAAAAEAAAAFAAkAAAAAAAEAAAArAAAAAAAEAAAAAAAsAAAAAAAEAAAAAAAtAAAAAAAEAAAAAAAuAAAAAAAEAAAAAAAvAAAAAAAEAAAAAAAwAAAAAAAEAAAAAAAxAAAAAAAEAAEAAAAyAP//AAAEAAAAAAAzAP//AAAEAAAAAAA0AP//AAAEAAAAAAA1AP//AAAEAAAAAAA2AP//AAAEAAAAAAArAAEAAAAEAAEAAAAsAAEAAAAEAAEAAAAtAAEAAAAEAAEAAAAuAAEAAAAEAAEAAAAqAAIAAAAEAAEAAAArAAIAAAAEAAEAAAAsAAIAAAAEAAEAAAAtAAIAAAAEAAEAAAAuAAIAAAAEAAEAAAAvAAIAAAAEAAEAAAAwAAIAAAAEAAEAAAAxAAIAAAAEAAEAAAAxAAEAAAAEAAEAAAAwAAEAAAAEAAEAAAAyAAEAAAAEAAEAAAAzAAEAAAAEAAEAAAA0AAEAAAAEAAEAAAAzAAAAAAAEAAEAAAAyAAAAAAAEAAEAAAAvAAEAAAAEAAEAAAA0AAAAAAAEAAEAAAA1AAAAAAAEAAEAAAA2AAAAAAAEAAEAAAA2AAEAAAAEAAEAAAA2AAIAAAAEAAEAAAA1AAEAAAAEAAEAAAA1AAIAAAAEAAEAAAA1AAMAAAAEAAEAAAA2AAMAAAAEAAEAAAA3AAQAAAAEAAEAAAA2AAQAAAAEAAEAAAA2AAUAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_lbhrr")
 
-[node name="Carrot" type="CharacterBody2D" parent="."]
-z_index = 5
-collision_layer = 2
-script = ExtResource("1_uwrxv")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Carrot"]
-position = Vector2(7, -12)
-scale = Vector2(1.5, 1.5)
-sprite_frames = SubResource("SpriteFrames_mwb40")
-animation = &"idle"
-autoplay = "idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Carrot"]
-position = Vector2(6, -4.5)
-shape = SubResource("RectangleShape2D_lnu2h")
-
-[node name="Camera2D" type="Camera2D" parent="Carrot"]
-zoom = Vector2(2, 2)
-limit_bottom = 150
-position_smoothing_enabled = true
+[node name="Carrot" parent="." instance=ExtResource("3_p57ef")]
 
 [node name="Coins" type="Node2D" parent="."]
 

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkh1gk1q8qaip" path="res://scenes/killzone.tscn" id="2_n6pvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjw23"]
-size = Vector2(14, 12)
+size = Vector2(8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n6pvg"]
 atlas = ExtResource("1_371uh")
