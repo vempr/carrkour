@@ -5,10 +5,13 @@ var direction = 1
 
 
 func _process(delta: float) -> void:
-	if %RayCastRight.is_colliding():
+	if Globals.dead == true:
+		return;
+	
+	if %RayCastRight.is_colliding() == false:
 		direction = -1
 		%AnimatedSprite2D.flip_h = true
-	if %RayCastLeft.is_colliding():
+	if %RayCastLeft.is_colliding() == false:
 		direction = 1
 		%AnimatedSprite2D.flip_h = false
 		
@@ -16,4 +19,4 @@ func _process(delta: float) -> void:
 
 
 func _on_killzone_body_entered(_body: Node2D) -> void:
-	get_tree().call_deferred("reload_current_scene")
+	%AnimatedSprite2D.play("kill")

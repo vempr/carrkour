@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://f56irhkirxp8"]
+
+[ext_resource type="Script" uid="uid://bvwm2co0wrhi7" path="res://scripts/rabbit/ground_rabbit.gd" id="1_gwlxo"]
+[ext_resource type="PackedScene" uid="uid://dkh1gk1q8qaip" path="res://scenes/killzone.tscn" id="2_saw5l"]
+[ext_resource type="Texture2D" uid="uid://bn3yk16sykojr" path="res://assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Actions.png" id="3_oinam"]
+[ext_resource type="Texture2D" uid="uid://f2t7ap2a0t7t" path="res://assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="4_buexl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwlxo"]
+atlas = ExtResource("4_buexl")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ncsv"]
+atlas = ExtResource("4_buexl")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xndvu"]
+atlas = ExtResource("3_oinam")
+region = Rect2(0, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65onl"]
+atlas = ExtResource("3_oinam")
+region = Rect2(48, 192, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gstla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwlxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ncsv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xndvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65onl")
+}],
+"loop": true,
+"name": &"kill",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjw23"]
+size = Vector2(4, 12)
+
+[node name="Rabbit" type="Node2D"]
+script = ExtResource("1_gwlxo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(0, 4)
+sprite_frames = SubResource("SpriteFrames_gstla")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Killzone" parent="." instance=ExtResource("2_saw5l")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_pjw23")
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

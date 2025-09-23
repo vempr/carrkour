@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://diuhbwb8gyhl"]
+
+[ext_resource type="Script" uid="uid://b4d2pha2s87fs" path="res://scripts/rabbit/walking_rabbit_free.gd" id="1_jhjjr"]
+[ext_resource type="PackedScene" uid="uid://dkh1gk1q8qaip" path="res://scenes/killzone.tscn" id="2_ljkiy"]
+[ext_resource type="Texture2D" uid="uid://bn3yk16sykojr" path="res://assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Actions.png" id="3_oihn4"]
+[ext_resource type="Texture2D" uid="uid://f2t7ap2a0t7t" path="res://assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="4_nrf8v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjw23"]
+size = Vector2(4, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p4uo"]
+atlas = ExtResource("3_oihn4")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17jw1"]
+atlas = ExtResource("3_oihn4")
+region = Rect2(48, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3undv"]
+atlas = ExtResource("4_nrf8v")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkuke"]
+atlas = ExtResource("4_nrf8v")
+region = Rect2(48, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw3ml"]
+atlas = ExtResource("4_nrf8v")
+region = Rect2(96, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08818"]
+atlas = ExtResource("4_nrf8v")
+region = Rect2(144, 144, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gstla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p4uo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17jw1")
+}],
+"loop": false,
+"name": &"kill",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3undv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkuke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw3ml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08818")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Rabbit" type="Node2D"]
+script = ExtResource("1_jhjjr")
+
+[node name="Killzone" parent="." instance=ExtResource("2_ljkiy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_pjw23")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 4)
+sprite_frames = SubResource("SpriteFrames_gstla")
+animation = &"kill"
+autoplay = "walk"
+frame = 1
+frame_progress = 1.0
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 6)
+target_position = Vector2(19, 9)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 6)
+target_position = Vector2(-19, 9)
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
