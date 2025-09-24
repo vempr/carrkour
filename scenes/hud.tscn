@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba3bifom3fixp"]
+
+[ext_resource type="Script" uid="uid://pd6dh8u604b7" path="res://scripts/hud.gd" id="1_5ysmq"]
+[ext_resource type="FontFile" uid="uid://5rl5t366etfu" path="res://assets/fonts/PixelOperator8.ttf" id="2_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://bdslojs3a1e0p" path="res://assets/Hana Caraka - Farming n Foraging [sample]/flowers/sunflower.png" id="3_uo2fv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dinhu"]
+bg_color = Color(0, 0, 0, 0.588235)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 10.0
+expand_margin_top = 7.0
+expand_margin_right = 5.0
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_5ysmq")
+
+[node name="CoinsLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 40.0
+offset_top = 7.0
+offset_right = 80.0
+offset_bottom = 37.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_6fi6k")
+theme_override_font_sizes/font_size = 29
+text = "0"
+
+[node name="CoinSymbol" type="Sprite2D" parent="."]
+position = Vector2(22, 21)
+scale = Vector2(2, 2)
+texture = ExtResource("3_uo2fv")
+region_enabled = true
+region_rect = Rect2(17, 17, 13, 13)
+
+[node name="GiveSunLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -221.0
+offset_top = 15.0
+offset_right = 221.0
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_6fi6k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dinhu")
+text = "Gate: \"Give me 10 Sun to progress.\""
+horizontal_alignment = 1
+
+[node name="RedHue" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 0, 0, 0.196078)

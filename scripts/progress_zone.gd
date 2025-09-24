@@ -2,6 +2,7 @@ extends Area2D
 
 signal sun_area_entered
 signal sun_area_exited
+signal progress_to_next_level
 
 var in_coin_zone = false
 
@@ -16,8 +17,15 @@ func _process(_delta: float) -> void:
 			
 			Globals.suns -= 1
 			Globals.suns_given += 1
+			
+			get_node("../TileMapLayers/PortalTreeMapLayers/PortalTreeLayer" + str(Globals.suns_given)).visible = true
+			
 			if Globals.suns_given == Globals.SUN_REQUIREMENT:
-				print("you can progress!")
+				%PortalMapLayer.visible = true
+		else:
+			if Globals.suns_given == Globals.SUN_REQUIREMENT:
+				progress_to_next_level.emit()
+
 	
 	if Input.is_action_just_released("give_coin"):
 		%EnterButton.disabled = true
