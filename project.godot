@@ -15,7 +15,7 @@ universal_fade/patterns_directory="res://addons/UniversalFade/Patterns"
 [application]
 
 config/name="carrkour"
-run/main_scene="uid://bs58ku1twhubx"
+run/main_scene="uid://c07o01755n0v7"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
