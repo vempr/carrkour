@@ -14,6 +14,8 @@ func _on_progress_to_next_level() -> void:
 	get_tree().change_scene_to_packed(next_level)
 
 	Globals.current_level += 1
+	if Globals.current_level == 4:
+		Globals.game_won = true
 	Globals.reset()
 
 	await Fade.fade_in().finished

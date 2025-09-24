@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bmknp03ic7m37" path="res://assets/sprites/world_tileset.png" id="5_ov8fk"]
 [ext_resource type="PackedScene" uid="uid://di0087qo8q4j8" path="res://scenes/carrot.tscn" id="6_pmra4"]
 [ext_resource type="PackedScene" uid="uid://cp5j7u27fhh8j" path="res://scenes/coin.tscn" id="7_1bx01"]
-[ext_resource type="PackedScene" uid="uid://8gtaij6uo40n" path="res://scenes/platform.tscn" id="8_vq5n0"]
+[ext_resource type="PackedScene" uid="uid://8gtaij6uo40n" path="res://scenes/platform/platform_green.tscn" id="8_vq5n0"]
 [ext_resource type="PackedScene" uid="uid://olt5gd0pi0wn" path="res://scenes/rabbit/walking_rabbit_pit.tscn" id="9_xt2o7"]
 [ext_resource type="PackedScene" uid="uid://diuhbwb8gyhl" path="res://scenes/rabbit/walking_rabbit_free.tscn" id="10_beuva"]
 [ext_resource type="PackedScene" uid="uid://f56irhkirxp8" path="res://scenes/rabbit/ground_rabbit.tscn" id="11_05se8"]

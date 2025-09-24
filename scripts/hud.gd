@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-func _ready() -> void: 
+func _ready() -> void:
 	%ProgressZone.sun_area_entered.connect(_on_sun_area_entered)
 	%ProgressZone.sun_area_exited.connect(_on_sun_area_exited)
 
@@ -13,6 +13,7 @@ func _process(_delta: float) -> void:
 		%RedHue.visible = false
 	
 	%CoinsLabel.text = str(Globals.suns)
+	%TimeLabel.text = Globals.get_elapsed_time_string()
 	
 	var required_suns = Globals.SUN_REQUIREMENT - Globals.suns_given
 	

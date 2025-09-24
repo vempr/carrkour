@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bmknp03ic7m37" path="res://assets/sprites/world_tileset.png" id="6_bahl2"]
 [ext_resource type="PackedScene" uid="uid://di0087qo8q4j8" path="res://scenes/carrot.tscn" id="7_np2pn"]
 [ext_resource type="PackedScene" uid="uid://cp5j7u27fhh8j" path="res://scenes/coin.tscn" id="8_v6ha0"]
-[ext_resource type="PackedScene" uid="uid://8gtaij6uo40n" path="res://scenes/platform.tscn" id="9_gmpev"]
+[ext_resource type="PackedScene" uid="uid://8gtaij6uo40n" path="res://scenes/platform/platform_green.tscn" id="9_gmpev"]
 [ext_resource type="PackedScene" uid="uid://olt5gd0pi0wn" path="res://scenes/rabbit/walking_rabbit_pit.tscn" id="10_mkypq"]
 [ext_resource type="PackedScene" uid="uid://diuhbwb8gyhl" path="res://scenes/rabbit/walking_rabbit_free.tscn" id="11_ndtll"]
 [ext_resource type="PackedScene" uid="uid://f56irhkirxp8" path="res://scenes/rabbit/ground_rabbit.tscn" id="12_7h2jl"]
@@ -45,7 +45,7 @@ texture = ExtResource("6_bahl2")
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -4.22668, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -594,7 +594,7 @@ tile_set = SubResource("TileSet_dnkej")
 
 [node name="Carrot" parent="." instance=ExtResource("7_np2pn")]
 unique_name_in_owner = true
-position = Vector2(3, 84)
+position = Vector2(676, -248)
 
 [node name="Coins" type="Node2D" parent="."]
 
