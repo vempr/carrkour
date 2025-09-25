@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl51l5ptbv3lp"]
+
+[ext_resource type="Script" uid="uid://dxrbbp2lgdx2a" path="res://scripts/pause.gd" id="1_m0klm"]
+[ext_resource type="FontFile" uid="uid://dqah31gtvyewx" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_aicil"]
+[ext_resource type="FontFile" uid="uid://5rl5t366etfu" path="res://assets/fonts/PixelOperator8.ttf" id="3_jn4bt"]
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+visible = false
+script = ExtResource("1_m0klm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.470588)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -74.0
+offset_right = 212.5
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_aicil")
+theme_override_font_sizes/font_size = 40
+text = "Game Paused"
+
+[node name="PracticeModeLevels" type="Node2D" parent="."]
+
+[node name="ButtonMainMenu" type="Button" parent="PracticeModeLevels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 389.0
+offset_top = 303.0
+offset_right = 510.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_jn4bt")
+theme_override_font_sizes/font_size = 10
+text = "Give Up"
+
+[node name="ButtonRestart" type="Button" parent="PracticeModeLevels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 517.0
+offset_top = 303.0
+offset_right = 638.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_jn4bt")
+theme_override_font_sizes/font_size = 10
+text = "Restart
+"
+
+[node name="ButtonContinue" type="Button" parent="PracticeModeLevels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 644.0
+offset_top = 303.0
+offset_right = 765.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_jn4bt")
+theme_override_font_sizes/font_size = 10
+text = "Continue"
+
+[connection signal="pressed" from="PracticeModeLevels/ButtonMainMenu" to="." method="_on_button_main_menu_pressed"]
+[connection signal="pressed" from="PracticeModeLevels/ButtonRestart" to="." method="_on_button_restart_pressed"]
+[connection signal="pressed" from="PracticeModeLevels/ButtonContinue" to="." method="_on_button_continue_pressed"]

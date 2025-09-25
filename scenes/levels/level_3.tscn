@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=4 uid="uid://bhql81cnpys4t"]
+[gd_scene load_steps=25 format=4 uid="uid://bhql81cnpys4t"]
 
 [ext_resource type="Script" uid="uid://dww8sgv35eeuh" path="res://scripts/level.gd" id="1_f6egh"]
 [ext_resource type="Script" uid="uid://mb08tobr6npc" path="res://scripts/progress_zone.gd" id="1_qi5uv"]
 [ext_resource type="FontFile" uid="uid://5rl5t366etfu" path="res://assets/fonts/PixelOperator8.ttf" id="2_f6egh"]
+[ext_resource type="PackedScene" uid="uid://bl51l5ptbv3lp" path="res://scenes/pause.tscn" id="2_qi5uv"]
 [ext_resource type="PackedScene" uid="uid://ba3bifom3fixp" path="res://scenes/hud.tscn" id="3_n6eey"]
 [ext_resource type="PackedScene" uid="uid://dkh1gk1q8qaip" path="res://scenes/killzone.tscn" id="5_josfm"]
 [ext_resource type="Texture2D" uid="uid://bmknp03ic7m37" path="res://assets/sprites/world_tileset.png" id="6_lgrx1"]
@@ -432,6 +433,8 @@ _data = {
 [node name="Level3" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_f6egh")
+
+[node name="Pause" parent="." instance=ExtResource("2_qi5uv")]
 
 [node name="ProgressZone" type="Area2D" parent="."]
 unique_name_in_owner = true

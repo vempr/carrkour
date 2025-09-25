@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=4 uid="uid://bs58ku1twhubx"]
+[gd_scene load_steps=29 format=4 uid="uid://bs58ku1twhubx"]
 
 [ext_resource type="Script" uid="uid://dww8sgv35eeuh" path="res://scripts/level.gd" id="1_dnkej"]
 [ext_resource type="PackedScene" uid="uid://ba3bifom3fixp" path="res://scenes/hud.tscn" id="1_excbq"]
 [ext_resource type="Script" uid="uid://mb08tobr6npc" path="res://scripts/progress_zone.gd" id="1_iav0o"]
 [ext_resource type="FontFile" uid="uid://5rl5t366etfu" path="res://assets/fonts/PixelOperator8.ttf" id="2_dnkej"]
+[ext_resource type="PackedScene" uid="uid://bl51l5ptbv3lp" path="res://scenes/pause.tscn" id="2_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://dkh1gk1q8qaip" path="res://scenes/killzone.tscn" id="5_iwr0g"]
 [ext_resource type="Texture2D" uid="uid://bmknp03ic7m37" path="res://assets/sprites/world_tileset.png" id="6_bahl2"]
 [ext_resource type="PackedScene" uid="uid://di0087qo8q4j8" path="res://scenes/carrot.tscn" id="7_np2pn"]
@@ -462,6 +463,8 @@ _data = {
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_dnkej")
+
+[node name="Pause" parent="." instance=ExtResource("2_mm8aj")]
 
 [node name="HUD" parent="." instance=ExtResource("1_excbq")]
 unique_name_in_owner = true

@@ -2,10 +2,11 @@ extends Node
 
 const SUN_REQUIREMENT = 10
 
-var dead = false
 var is_in_practice_mode = false
 var game_started = false
 var game_won = false
+
+var dead = false
 var start_time: int
 var elapsed_time: float = 0.0
 
