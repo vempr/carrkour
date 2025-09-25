@@ -1,6 +1,8 @@
 extends Node2D
 
-@onready var next_level = load("res://scenes/levels/level_1.tscn")
+@onready var level_one = load("res://scenes/levels/level_1.tscn")
+@onready var level_two = load("res://scenes/levels/level_2.tscn")
+@onready var level_three = load("res://scenes/levels/level_3.tscn")
 
 
 func _pause_children(state: bool) -> void:
@@ -10,15 +12,44 @@ func _pause_children(state: bool) -> void:
 			child.set_physics_process(!state)
 
 
-func _on_button_pressed() -> void:
-	Globals.debug()
+func _on_adventure_mode_button_pressed() -> void:
 	_pause_children(true)
 	await Fade.fade_out().finished
 	
-	Globals.current_level += 1
+	Globals.current_level = 1
 	Globals.start_stopwatch()
 
-	get_tree().change_scene_to_packed(next_level)
+	get_tree().change_scene_to_packed(level_one)
 	await Fade.fade_in().finished
 	_pause_children(false)
 	
+
+func play_practice_mode(level: int) -> void:
+	_pause_children(true)
+	await Fade.fade_out().finished
+	
+	Globals.is_in_practice_mode = true
+	Globals.start_stopwatch()
+
+	match level:
+		1:
+			get_tree().change_scene_to_packed(level_one)
+		2:
+			get_tree().change_scene_to_packed(level_two)
+		3:
+			get_tree().change_scene_to_packed(level_three)
+	
+	await Fade.fade_in().finished
+	_pause_children(false)
+
+
+func _on_button_level_1_pressed() -> void:
+	play_practice_mode(1)
+
+
+func _on_button_level_2_pressed() -> void:
+	play_practice_mode(2)
+
+
+func _on_button_level_3_pressed() -> void:
+	play_practice_mode(3)

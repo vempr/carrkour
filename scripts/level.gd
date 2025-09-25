@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var next_level = load("res://scenes/levels/level_" + str(Globals.current_level + 1) + ".tscn")
-
+@onready var start_menu = load("res://scenes/levels/level_0.tscn")
 
 func _ready() -> void:
 	%ProgressZone.progress_to_next_level.connect(_on_progress_to_next_level)
@@ -11,11 +11,14 @@ func _on_progress_to_next_level() -> void:
 	_pause_children(true)
 	await Fade.fade_out().finished
 	
-	get_tree().change_scene_to_packed(next_level)
-
-	Globals.current_level += 1
-	if Globals.current_level == 4:
-		Globals.game_won = true
+	if Globals.is_in_practice_mode == true:
+		get_tree().change_scene_to_packed(start_menu)
+	else:
+		get_tree().change_scene_to_packed(next_level)
+		Globals.current_level += 1
+		if Globals.current_level == 4:
+			Globals.game_won = true
+			
 	Globals.reset()
 
 	await Fade.fade_in().finished
