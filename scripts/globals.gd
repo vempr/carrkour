@@ -56,3 +56,4 @@ func debug() -> void:
 	print(Globals.deaths)
 	print(Globals.suns)
 	print(Globals.suns_given)
+	

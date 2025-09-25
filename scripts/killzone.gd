@@ -8,7 +8,6 @@ func _on_body_entered(body):
 	Globals.dead = true
 	Globals.deaths += 1
 	timer.start()
-	print(Globals.deaths)
 
 
 func _on_timer_timeout():
