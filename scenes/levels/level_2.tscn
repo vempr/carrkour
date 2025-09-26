@@ -885,7 +885,5 @@ position = Vector2(88, -86)
 stream = ExtResource("16_ndlae")
 autoplay = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
 [connection signal="body_entered" from="ProgressZone" to="ProgressZone" method="_on_body_entered"]
 [connection signal="body_exited" from="ProgressZone" to="ProgressZone" method="_on_body_exited"]

@@ -4,7 +4,7 @@ const SUN_REQUIREMENT = 10
 
 var is_in_practice_mode = false
 var game_started = false
-var game_won = false
+var game_won = true
 
 var dead = false
 var start_time: int

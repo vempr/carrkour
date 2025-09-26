@@ -8,6 +8,11 @@ var in_coin_zone = false
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("give_coin") and in_coin_zone:
+		if Globals.game_won == true:
+			progress_to_next_level.emit()
+			process_mode = Node.PROCESS_MODE_DISABLED
+			return
+			
 		%EnterButton.disabled = false
 		%EButton.disabled = false
 

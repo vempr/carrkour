@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0bc0eag3t6qe"]
+
+[ext_resource type="Texture2D" uid="uid://cyyfo8tkghaqp" path="res://assets/Hana Caraka - Farming n Foraging [sample]/crops/carrot.png" id="1_n2rv8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_caj38"]
+atlas = ExtResource("1_n2rv8")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx5fp"]
+atlas = ExtResource("1_n2rv8")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyf0q"]
+atlas = ExtResource("1_n2rv8")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nyajl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_caj38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx5fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyf0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx5fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_caj38")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_nyajl")
+autoplay = "default"

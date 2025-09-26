@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://2a3rpk1girwb"]
+
+[ext_resource type="Script" uid="uid://2pxlrhcwg70s" path="res://scripts/animal.gd" id="1_r1mxx"]
+[ext_resource type="Texture2D" uid="uid://lwo7upaxxsyj" path="res://assets/Sprout Lands - Sprites - Basic pack/Characters/Free Cow Sprites.png" id="3_r1mxx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t8lt"]
+atlas = ExtResource("3_r1mxx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhwbb"]
+atlas = ExtResource("3_r1mxx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc6fi"]
+atlas = ExtResource("3_r1mxx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tue7c"]
+atlas = ExtResource("3_r1mxx")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfysl"]
+atlas = ExtResource("3_r1mxx")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gstla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t8lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhwbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc6fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tue7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfysl")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Cow" type="Node2D"]
+script = ExtResource("1_r1mxx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_gstla")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 6)
+target_position = Vector2(22, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 6)
+target_position = Vector2(-19, 9)

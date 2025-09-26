@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br16mxxgobtal"
-path="res://.godot/imported/rose - red.png-7cbf8305ee6bf61b3c7a012bbf647b89.ctex"
+uid="uid://cdmahu2ymucxo"
+path="res://.godot/imported/Free Chicken Sprites.png-e355cca485711419106ea6e48c23c88e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Hana Caraka - Farming n Foraging [sample]/flowers/rose - red.png"
-dest_files=["res://.godot/imported/rose - red.png-7cbf8305ee6bf61b3c7a012bbf647b89.ctex"]
+source_file="res://assets/Sprout Lands - Sprites - Basic pack/Characters/Free Chicken Sprites.png"
+dest_files=["res://.godot/imported/Free Chicken Sprites.png-e355cca485711419106ea6e48c23c88e.ctex"]
 
 [params]
 
