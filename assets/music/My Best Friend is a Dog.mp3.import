@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cb72dykg4vkpu"
+path="res://.godot/imported/My Best Friend is a Dog.mp3-b9ac4cbdbb68009a3d6862c4898c7d79.mp3str"
+
+[deps]
+
+source_file="res://assets/music/My Best Friend is a Dog.mp3"
+dest_files=["res://.godot/imported/My Best Friend is a Dog.mp3-b9ac4cbdbb68009a3d6862c4898c7d79.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

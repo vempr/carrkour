@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://di0087qo8q4j8"]
+[gd_scene load_steps=11 format=3 uid="uid://di0087qo8q4j8"]
 
 [ext_resource type="Script" uid="uid://6xnvvxok51af" path="res://scripts/carrot.gd" id="1_elckd"]
 [ext_resource type="Texture2D" uid="uid://cyyfo8tkghaqp" path="res://assets/Hana Caraka - Farming n Foraging [sample]/crops/carrot.png" id="2_mb1r7"]
+[ext_resource type="AudioStream" uid="uid://jawve86n8f6o" path="res://assets/sounds/jump.wav" id="3_mb1r7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mb1r7"]
 atlas = ExtResource("2_mb1r7")
@@ -81,3 +82,8 @@ shape = SubResource("RectangleShape2D_lnu2h")
 zoom = Vector2(2, 2)
 limit_bottom = 150
 position_smoothing_enabled = true
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_mb1r7")
+volume_db = -15.0

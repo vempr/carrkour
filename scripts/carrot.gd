@@ -32,9 +32,10 @@ func _physics_process(delta: float) -> void:
 		coyote_time -= delta
 
 	if jump_buffer > 0 and coyote_time > 0:
+		%AudioPlayer.play()
 		velocity.y = JUMP_VELOCITY
 		jump_buffer = 0
-		coyote_time = 0 
+		coyote_time = 0
 
 	var direction := Input.get_axis("move_left", "move_right")
 

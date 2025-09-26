@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://wjy5gevtip1g"]
+[gd_scene load_steps=26 format=4 uid="uid://wjy5gevtip1g"]
 
 [ext_resource type="Script" uid="uid://mb08tobr6npc" path="res://scripts/progress_zone.gd" id="1_4wsov"]
 [ext_resource type="FontFile" uid="uid://5rl5t366etfu" path="res://assets/fonts/PixelOperator8.ttf" id="2_qvnao"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://olt5gd0pi0wn" path="res://scenes/rabbit/walking_rabbit_pit.tscn" id="9_xt2o7"]
 [ext_resource type="PackedScene" uid="uid://diuhbwb8gyhl" path="res://scenes/rabbit/walking_rabbit_free.tscn" id="10_beuva"]
 [ext_resource type="PackedScene" uid="uid://f56irhkirxp8" path="res://scenes/rabbit/ground_rabbit.tscn" id="11_05se8"]
+[ext_resource type="AudioStream" uid="uid://b1cx203nyvn0b" path="res://assets/music/No Destination.mp3" id="12_qvnao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
 size = Vector2(79, 64)
@@ -501,6 +502,12 @@ rotation = 3.14159
 
 [node name="Rabbit16" parent="Rabbits/GroundRabbits" instance=ExtResource("11_05se8")]
 position = Vector2(744, -230)
+
+[node name="NoDestination" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_qvnao")
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="body_entered" from="ProgressZone" to="ProgressZone" method="_on_body_entered"]
 [connection signal="body_exited" from="ProgressZone" to="ProgressZone" method="_on_body_exited"]

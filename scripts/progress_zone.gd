@@ -22,8 +22,12 @@ func _process(_delta: float) -> void:
 			
 			if Globals.suns_given == Globals.SUN_REQUIREMENT:
 				%PortalMapLayer.visible = true
+				%PortalAudioStream.play()
+			else:
+				%GivePortalAudioStream.play()
 		else:
 			if Globals.suns_given == Globals.SUN_REQUIREMENT:
+				%EnterPortalAudioStream.play()
 				progress_to_next_level.emit()
 
 	

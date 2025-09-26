@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp5j7u27fhh8j"]
+[gd_scene load_steps=8 format=3 uid="uid://cp5j7u27fhh8j"]
 
 [ext_resource type="Script" uid="uid://dggio7bqm6edx" path="res://scripts/coin.gd" id="1_i64fm"]
 [ext_resource type="Texture2D" uid="uid://bdslojs3a1e0p" path="res://assets/Hana Caraka - Farming n Foraging [sample]/flowers/sunflower.png" id="2_i64fm"]
+[ext_resource type="AudioStream" uid="uid://dp64esg2tqa1u" path="res://assets/sounds/coin.wav" id="3_11l1o"]
 
 [sub_resource type="Animation" id="Animation_11l1o"]
 length = 0.001
@@ -62,5 +63,10 @@ autoplay = "rotate_sprite"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ssuvv")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_11l1o")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

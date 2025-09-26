@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dxgbvm4x3dsk6"]
+[gd_scene load_steps=33 format=4 uid="uid://dxgbvm4x3dsk6"]
 
 [ext_resource type="Script" uid="uid://mb08tobr6npc" path="res://scripts/progress_zone.gd" id="1_brxtv"]
 [ext_resource type="PackedScene" uid="uid://ba3bifom3fixp" path="res://scenes/hud.tscn" id="1_nt80m"]
@@ -6,13 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://bl51l5ptbv3lp" path="res://scenes/pause.tscn" id="2_r88tb"]
 [ext_resource type="FontFile" uid="uid://5rl5t366etfu" path="res://assets/fonts/PixelOperator8.ttf" id="2_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://dkh1gk1q8qaip" path="res://scenes/killzone.tscn" id="5_ndlae"]
+[ext_resource type="AudioStream" uid="uid://ce6prnhxldqby" path="res://assets/sounds/active_portal.wav" id="6_r88tb"]
 [ext_resource type="Texture2D" uid="uid://bmknp03ic7m37" path="res://assets/sprites/world_tileset.png" id="6_v8d84"]
+[ext_resource type="AudioStream" uid="uid://bvqfii14exg61" path="res://assets/sounds/enter_portal.wav" id="7_1yj8c"]
 [ext_resource type="PackedScene" uid="uid://di0087qo8q4j8" path="res://scenes/carrot.tscn" id="7_gw1l3"]
 [ext_resource type="PackedScene" uid="uid://b3vswtir3ifio" path="res://scenes/platform/platform_brown.tscn" id="8_8qukl"]
 [ext_resource type="PackedScene" uid="uid://cp5j7u27fhh8j" path="res://scenes/coin.tscn" id="8_p4se4"]
+[ext_resource type="AudioStream" uid="uid://c0xk2o7272a86" path="res://assets/sounds/tap.wav" id="8_v8d84"]
 [ext_resource type="PackedScene" uid="uid://olt5gd0pi0wn" path="res://scenes/rabbit/walking_rabbit_pit.tscn" id="10_lkn2k"]
 [ext_resource type="PackedScene" uid="uid://diuhbwb8gyhl" path="res://scenes/rabbit/walking_rabbit_free.tscn" id="11_sbygb"]
 [ext_resource type="PackedScene" uid="uid://f56irhkirxp8" path="res://scenes/rabbit/ground_rabbit.tscn" id="12_5niy6"]
+[ext_resource type="AudioStream" uid="uid://dlso040crvase" path="res://assets/music/Pix - Rose Garden.mp3" id="16_ndlae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
 size = Vector2(79, 64)
@@ -508,6 +512,20 @@ theme_override_font_sizes/font_size = 8
 disabled = true
 text = "E"
 
+[node name="PortalAudioStream" type="AudioStreamPlayer" parent="ProgressZone"]
+unique_name_in_owner = true
+stream = ExtResource("6_r88tb")
+volume_db = -5.0
+
+[node name="EnterPortalAudioStream" type="AudioStreamPlayer" parent="ProgressZone"]
+unique_name_in_owner = true
+stream = ExtResource("7_1yj8c")
+volume_db = -5.0
+
+[node name="GivePortalAudioStream" type="AudioStreamPlayer" parent="ProgressZone"]
+unique_name_in_owner = true
+stream = ExtResource("8_v8d84")
+
 [node name="Killzone" parent="." instance=ExtResource("5_ndlae")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
@@ -531,7 +549,7 @@ tile_map_data = PackedByteArray("AADT/9L/AAAPAAAAAADT/9P/AAAPAAAAAADT/9T/AAAPAAA
 tile_set = SubResource("TileSet_lbhrr")
 
 [node name="ForegroundMapLayer" type="TileMapLayer" parent="TileMapLayers"]
-z_index = 5
+z_index = 10
 tile_map_data = PackedByteArray("AAAQAAkAAAAEAAsAAAARAAkAAAAEAAsAAAASAAkAAAAEAAsAAAATAAkAAAAEAAsAAAAUAAkAAAAEAAsAAAAVAAkAAAAEAAsAAAAWAAkAAAAEAAsAAAAXAAkAAAAEAAsAAAAYAAkAAAAEAAsAAAAZAAkAAAAEAAsAAAAaAAkAAAAEAAsAAAAbAAkAAAAEAAsAAAAcAAkAAAAEAAsAAAAdAAkAAAAEAAsAAAAeAAkAAAAEAAsAAAAfAAkAAAAEAAsAAAAgAAkAAAAEAAsAAAAhAAkAAAAEAAsAAAAiAAkAAAAEAAsAAAAjAAkAAAAEAAsAAAAkAAkAAAAEAAsAAAAlAAkAAAAEAAsAAAAmAAkAAAAEAAsAAAAnAAkAAAAEAAsAAAAoAAkAAAAEAAsAAAApAAkAAAAEAAsAAAAqAAkAAAAEAAsAAAArAAkAAAAEAAsAAAAsAAkAAAAEAAsAAAAtAAkAAAAEAAsAAAAuAAkAAAAEAAsAAAAvAAkAAAAEAAsAAAAwAAkAAAAEAAsAAAAxAAkAAAAEAAsAAAAyAAkAAAAEAAsAAAAzAAkAAAAEAAsAAAA0AAkAAAAEAAsAAAA1AAkAAAAEAAsAAAA2AAkAAAAEAAsAAAA3AAkAAAAEAAsAAAA4AAkAAAAEAAsAAAAPAAkAAAAEAAsAAAAOAAkAAAAEAAsAAAANAAkAAAAEAAsAAAAMAAkAAAAEAAsAAAALAAkAAAAEAAsAAAAKAAkAAAAEAAsAAAAJAAkAAAAEAAsAAAAIAAkAAAAEAAsAAADX/wkAAAAEAAsAAADY/wkAAAAEAAsAAADZ/wkAAAAEAAsAAADa/wkAAAAEAAsAAADb/wkAAAAEAAsAAADc/wkAAAAEAAsAAADd/wkAAAAEAAsAAADe/wkAAAAEAAsAAADf/wkAAAAEAAsAAADg/wkAAAAEAAsAAADh/wkAAAAEAAsAAADi/wkAAAAEAAsAAADj/wkAAAAEAAsAAADk/wkAAAAEAAsAAADl/wkAAAAEAAsAAADm/wkAAAAEAAsAAADn/wkAAAAEAAsAAADo/wkAAAAEAAsAAADp/wkAAAAEAAsAAADq/wkAAAAEAAsAAADr/wkAAAAEAAsAAADs/wkAAAAEAAsAAADt/wkAAAAEAAsAAADu/wkAAAAEAAsAAADv/wkAAAAEAAsAAADw/wkAAAAEAAsAAADx/wkAAAAEAAsAAADy/wkAAAAEAAsAAADz/wkAAAAEAAsAAAD0/wkAAAAEAAsAAAD1/wkAAAAEAAsAAAD2/wkAAAAEAAsAAAD3/wkAAAAEAAsAAAD4/wkAAAAEAAsAAAD5/wkAAAAEAAsAAAD6/wkAAAAEAAsAAAD7/wkAAAAEAAsAAAD8/wkAAAAEAAsAAAD9/wkAAAAEAAsAAAD+/wkAAAAEAAsAAAD//wkAAAAEAAsAAAAAAAkAAAAEAAsAAAABAAkAAAAEAAsAAAACAAkAAAAEAAsAAAADAAkAAAAEAAsAAAAEAAkAAAAEAAsAAAAFAAkAAAAEAAsAAAAGAAkAAAAEAAsAAAAHAAkAAAAEAAsAAAC+/wkAAAAEAAsAAAC//wkAAAAEAAsAAADA/wkAAAAEAAsAAADB/wkAAAAEAAsAAADC/wkAAAAEAAsAAADD/wkAAAAEAAsAAADE/wkAAAAEAAsAAADF/wkAAAAEAAsAAADG/wkAAAAEAAsAAADH/wkAAAAEAAsAAADI/wkAAAAEAAsAAADJ/wkAAAAEAAsAAADK/wkAAAAEAAsAAADL/wkAAAAEAAsAAADM/wkAAAAEAAsAAADN/wkAAAAEAAsAAADO/wkAAAAEAAsAAADP/wkAAAAEAAsAAADQ/wkAAAAEAAsAAADR/wkAAAAEAAsAAADS/wkAAAAEAAsAAADT/wkAAAAEAAsAAADU/wkAAAAEAAsAAADV/wkAAAAEAAsAAADW/wkAAAAEAAsAAAA5AAkAAAAEAAsAAAA6AAkAAAAEAAsAAAA7AAkAAAAEAAsAAAA8AAkAAAAEAAsAAAA9AAkAAAAEAAsAAAA+AAkAAAAEAAsAAAA/AAkAAAAEAAsAAABAAAkAAAAEAAsAAABBAAkAAAAEAAsAAABCAAkAAAAEAAsAAABDAAkAAAAEAAsAAABEAAkAAAAEAAsAAABFAAkAAAAEAAsAAABGAAkAAAAEAAsAAABHAAkAAAAEAAsAAABIAAkAAAAEAAsAAABJAAkAAAAEAAsAAABKAAkAAAAEAAsAAABLAAkAAAAEAAsAAABMAAkAAAAEAAsAAABNAAkAAAAEAAsAAABOAAkAAAAEAAsAAACw/wkAAAAEAAsAAACx/wkAAAAEAAsAAACy/wkAAAAEAAsAAACz/wkAAAAEAAsAAAC0/wkAAAAEAAsAAAC1/wkAAAAEAAsAAAC2/wkAAAAEAAsAAAC3/wkAAAAEAAsAAAC4/wkAAAAEAAsAAAC5/wkAAAAEAAsAAAC6/wkAAAAEAAsAAAC7/wkAAAAEAAsAAAC8/wkAAAAEAAsAAAC9/wkAAAAEAAsAAACs/wkAAAAEAAsAAACt/wkAAAAEAAsAAACu/wkAAAAEAAsAAACv/wkAAAAEAAsAAAA=")
 tile_set = SubResource("TileSet_lbhrr")
 
@@ -862,6 +880,12 @@ position = Vector2(72, -86)
 
 [node name="Rabbit40" parent="Rabbits/GroundRabbits" instance=ExtResource("12_5niy6")]
 position = Vector2(88, -86)
+
+[node name="Pix-RoseGarden" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_ndlae")
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="body_entered" from="ProgressZone" to="ProgressZone" method="_on_body_entered"]
 [connection signal="body_exited" from="ProgressZone" to="ProgressZone" method="_on_body_exited"]

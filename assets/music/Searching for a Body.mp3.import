@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c70c1umpym5v6"
+path="res://.godot/imported/Searching for a Body.mp3-0766d2d54676c460a790b643e36b7c42.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Searching for a Body.mp3"
+dest_files=["res://.godot/imported/Searching for a Body.mp3-0766d2d54676c460a790b643e36b7c42.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

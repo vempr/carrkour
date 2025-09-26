@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://c07o01755n0v7"]
+[gd_scene load_steps=15 format=4 uid="uid://c07o01755n0v7"]
 
 [ext_resource type="Script" uid="uid://c07ao376lpu1c" path="res://scripts/start_menu.gd" id="1_osc7o"]
 [ext_resource type="Texture2D" uid="uid://cyyfo8tkghaqp" path="res://assets/Hana Caraka - Farming n Foraging [sample]/crops/carrot.png" id="3_jjvta"]
 [ext_resource type="FontFile" uid="uid://dqah31gtvyewx" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_3mnpy"]
 [ext_resource type="FontFile" uid="uid://5rl5t366etfu" path="res://assets/fonts/PixelOperator8.ttf" id="4_myogd"]
 [ext_resource type="Texture2D" uid="uid://bmknp03ic7m37" path="res://assets/sprites/world_tileset.png" id="6_ypncs"]
+[ext_resource type="AudioStream" uid="uid://p34r8c1s44cj" path="res://assets/music/A Lonely Cherry Tree.mp3" id="8_6ayib"]
 [ext_resource type="PackedScene" uid="uid://diuhbwb8gyhl" path="res://scenes/rabbit/walking_rabbit_free.tscn" id="11_3eiyy"]
 [ext_resource type="PackedScene" uid="uid://f56irhkirxp8" path="res://scenes/rabbit/ground_rabbit.tscn" id="12_x58fq"]
 
@@ -384,8 +385,12 @@ position = Vector2(232, 554)
 [node name="Rabbit2" parent="." instance=ExtResource("11_3eiyy")]
 position = Vector2(55, 532)
 
-[connection signal="pressed" from="CanvasLayer/AdventureModeButton" to="." method="_on_button_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_6ayib")
+autoplay = true
+
 [connection signal="pressed" from="CanvasLayer/AdventureModeButton" to="." method="_on_adventure_mode_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/AdventureModeButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PracticeModeLevels/ButtonLevel1" to="." method="_on_button_level_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/PracticeModeLevels/ButtonLevel2" to="." method="_on_button_level_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/PracticeModeLevels/ButtonLevel3" to="." method="_on_button_level_3_pressed"]
