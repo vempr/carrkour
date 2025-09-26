@@ -1,6 +1,7 @@
 extends Node
 
 const SUN_REQUIREMENT = 10
+const LAST_LEVEL = 5
 
 var is_in_practice_mode = false
 var game_started = false
