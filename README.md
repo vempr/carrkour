@@ -12,15 +12,16 @@ There are **three endings** in total:
 - Good Ending (beat Adventure Mode deathless)
 - Real Ending (beat Hardcore Mode)
 
-The difference between Adventure Mode Deathless & Hardcore Mode lies in the buffed skillset of
-your bunny enemies.
+The difference between Adventure Mode Deathless & Hardcore Mode lies in the buffed bunny enemies.
+I haven't beaten Hardcore Mode because they move 33% faster and I keep dying to Level 4.
+Here's the demo on mobile: https://youtu.be/GWqqfXQtJGI
 
 ## Showcase
 
-image1
-image2
-image3
-image4
+![](https://github.com/vempr/carrkour/blob/d640a741b21d71dc1a5d118feabdf4485b6974d5/assets/readme/week-4-1.jpg)
+![](https://github.com/vempr/carrkour/blob/d640a741b21d71dc1a5d118feabdf4485b6974d5/assets/readme/week-4-2.jpg)
+![](https://github.com/vempr/carrkour/blob/d640a741b21d71dc1a5d118feabdf4485b6974d5/assets/readme/week-4-3.jpg)
+![](https://github.com/vempr/carrkour/blob/d640a741b21d71dc1a5d118feabdf4485b6974d5/assets/readme/week-4-4.jpg)
 
 ## Installation
 
@@ -30,14 +31,14 @@ To play online, just visit https://vempr.itch.io/carrkour.
 
 1. Clone the repository:
 
-`git clone https://www.github.com/vempr/midnight-stealth`
+`git clone https://www.github.com/vempr/carrkour`
 
 2. Import the folder in Godot Game Engine
 
 3. Done!
 
 ## Credits
-- World tileset and sound effects from Brackey's Platformer Assets
-- Crops and flowers from "Hana Caraka - Farming n Foraging" (itch.io)
-- Rabbits and animals from "Sprout Lands" (itch.io)
-- 
+- World tileset and sound effects from Brackey's Platformer Bundle ([itch.io](https://brackeysgames.itch.io/brackeys-platformer-bundle))
+- Crops and flowers from "Hana Caraka - Farming n Foraging" ([itch.io](https://otterisk.itch.io/hana-caraka-farming-foraging))
+- Rabbits and animals from "Sprout Lands" ([itch.io](https://cupnooble.itch.io/sprout-lands-asset-pack))
+- Amazing soundtracks by Pix ([YouTube](https://www.youtube.com/@Pixverses))

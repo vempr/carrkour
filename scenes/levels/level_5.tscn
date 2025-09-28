@@ -291,6 +291,8 @@ disabled = true
 text = "E"
 
 [node name="InteractTouchScreenButton" type="TouchScreenButton" parent="ProgressZone"]
+unique_name_in_owner = true
+visible = false
 position = Vector2(985, -20)
 shape = SubResource("RectangleShape2D_0y7y4")
 

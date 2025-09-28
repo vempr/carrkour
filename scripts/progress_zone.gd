@@ -45,6 +45,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	in_coin_zone = true
 	%EButton.visible = true
 	%EnterButton.visible = true
+	%InteractTouchScreenButton.visible = true
 	sun_area_entered.emit()
 
 
@@ -52,6 +53,7 @@ func _on_body_exited(_body: Node2D) -> void:
 	in_coin_zone = false
 	%EButton.visible = false
 	%EnterButton.visible = false
+	%InteractTouchScreenButton.visible = false
 	sun_area_exited.emit()
 
 

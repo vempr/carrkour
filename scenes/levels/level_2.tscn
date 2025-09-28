@@ -532,6 +532,8 @@ stream = ExtResource("8_v8d84")
 volume_db = -3.0
 
 [node name="InteractTouchScreenButton" type="TouchScreenButton" parent="ProgressZone"]
+unique_name_in_owner = true
+visible = false
 position = Vector2(215, 74)
 shape = SubResource("RectangleShape2D_gw1l3")
 
