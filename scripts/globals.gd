@@ -6,7 +6,7 @@ const LAST_LEVEL = 5
 var is_in_hardcore_mode = false
 var is_in_practice_mode = false
 var game_started = false
-var game_won = true
+var game_won = false
 
 var dead = false
 var start_time: float
@@ -17,7 +17,7 @@ var current_level = 1
 
 var deaths = 0
 var suns = 0
-var suns_given = 9
+var suns_given = 0
 
 
 func _process(_delta: float) -> void:
@@ -28,7 +28,7 @@ func _process(_delta: float) -> void:
 func reset() -> void:
 	dead = false
 	suns = 0
-	suns_given = 9
+	suns_given = 0
 
 
 func get_elapsed_time_string() -> String:

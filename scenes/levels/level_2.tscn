@@ -490,22 +490,22 @@ shape = SubResource("RectangleShape2D_kvpfn")
 unique_name_in_owner = true
 visible = false
 z_index = 10
-offset_left = 181.0
+offset_left = 186.0
 offset_top = 44.0
-offset_right = 234.0
+offset_right = 228.0
 offset_bottom = 62.0
 theme_override_fonts/font = ExtResource("2_tv7cl")
 theme_override_font_sizes/font_size = 8
 disabled = true
-text = "Enter ↵"
+text = "Enter"
 
 [node name="EButton" type="Button" parent="ProgressZone"]
 unique_name_in_owner = true
 visible = false
 z_index = 10
-offset_left = 235.0
+offset_left = 230.0
 offset_top = 44.0
-offset_right = 250.0
+offset_right = 245.0
 offset_bottom = 62.0
 theme_override_fonts/font = ExtResource("2_tv7cl")
 theme_override_font_sizes/font_size = 8
@@ -633,7 +633,7 @@ tile_map_data = PackedByteArray("AAAvAPD/AAADAAgAAAAzAPD/AAADAAcAAAAvAO//AAADAAc
 tile_set = SubResource("TileSet_tv7cl")
 
 [node name="Carrot" parent="." instance=ExtResource("7_gw1l3")]
-position = Vector2(131, -137)
+position = Vector2(-86, 21)
 
 [node name="Coins" type="Node2D" parent="."]
 
