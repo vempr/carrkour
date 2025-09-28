@@ -12,12 +12,12 @@ var move_input: int = 0
 
 
 func _ready() -> void:
-	$MobileMovement.mobile_left_down.connect(_on_mobile_left_down)
-	$MobileMovement.mobile_left_up.connect(_on_mobile_left_up)
-	$MobileMovement.mobile_right_down.connect(_on_mobile_right_down)
-	$MobileMovement.mobile_right_up.connect(_on_mobile_right_up)
-	$MobileMovement.mobile_jump_down.connect(_on_mobile_jump_down)
-	$MobileMovement.mobile_jump_up.connect(_on_mobile_jump_up)
+	$"../MobileMovement".mobile_left_down.connect(_on_mobile_left_down)
+	$"../MobileMovement".mobile_left_up.connect(_on_mobile_left_up)
+	$"../MobileMovement".mobile_right_down.connect(_on_mobile_right_down)
+	$"../MobileMovement".mobile_right_up.connect(_on_mobile_right_up)
+	$"../MobileMovement".mobile_jump_down.connect(_on_mobile_jump_down)
+	$"../MobileMovement".mobile_jump_up.connect(_on_mobile_jump_up)
 
 
 

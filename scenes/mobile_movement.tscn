@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqden131sqyoe"]
+[gd_scene load_steps=5 format=3 uid="uid://cqden131sqyoe"]
 
 [ext_resource type="Script" uid="uid://blp4qstw0j8s4" path="res://scripts/mobile_movement.gd" id="1_bjaee"]
 [ext_resource type="FontFile" uid="uid://5rl5t366etfu" path="res://assets/fonts/PixelOperator8.ttf" id="2_tyxxt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyxxt"]
+size = Vector2(190, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyk1r"]
+size = Vector2(85, 75)
 
 [node name="MobileMovement" type="CanvasLayer"]
 visible = false
@@ -14,6 +20,7 @@ offset_right = 185.0
 offset_bottom = 627.0
 theme_override_fonts/font = ExtResource("2_tyxxt")
 theme_override_font_sizes/font_size = 120
+disabled = true
 text = "<"
 
 [node name="RightButton" type="Button" parent="."]
@@ -23,6 +30,7 @@ offset_right = 358.0
 offset_bottom = 627.0
 theme_override_fonts/font = ExtResource("2_tyxxt")
 theme_override_font_sizes/font_size = 120
+disabled = true
 text = ">"
 
 [node name="JumpButton" type="Button" parent="."]
@@ -32,11 +40,47 @@ offset_right = 1110.0
 offset_bottom = 627.0
 theme_override_fonts/font = ExtResource("2_tyxxt")
 theme_override_font_sizes/font_size = 120
+disabled = true
 text = "J"
 
-[connection signal="button_down" from="LeftButton" to="." method="_on_left_button_button_down"]
-[connection signal="button_up" from="LeftButton" to="." method="_on_left_button_button_up"]
-[connection signal="button_down" from="RightButton" to="." method="_on_right_button_button_down"]
-[connection signal="button_up" from="RightButton" to="." method="_on_right_button_button_up"]
-[connection signal="button_down" from="JumpButton" to="." method="_on_jump_button_button_down"]
-[connection signal="button_up" from="JumpButton" to="." method="_on_jump_button_button_up"]
+[node name="PauseButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -41.0
+offset_top = -94.0
+offset_right = 30.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.17214, 1)
+theme_override_fonts/font = ExtResource("2_tyxxt")
+theme_override_font_sizes/font_size = 50
+disabled = true
+text = "II"
+
+[node name="LeftTouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(91, 542)
+shape = SubResource("RectangleShape2D_tyxxt")
+
+[node name="RightTouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(304, 542)
+shape = SubResource("RectangleShape2D_tyxxt")
+
+[node name="JumpTouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(1018, 542)
+shape = SubResource("RectangleShape2D_tyxxt")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(576, 592)
+shape = SubResource("RectangleShape2D_gyk1r")
+
+[connection signal="pressed" from="LeftTouchScreenButton" to="." method="_on_left_touch_screen_button_pressed"]
+[connection signal="released" from="LeftTouchScreenButton" to="." method="_on_left_touch_screen_button_released"]
+[connection signal="pressed" from="RightTouchScreenButton" to="." method="_on_right_touch_screen_button_pressed"]
+[connection signal="released" from="RightTouchScreenButton" to="." method="_on_right_touch_screen_button_released"]
+[connection signal="pressed" from="JumpTouchScreenButton" to="." method="_on_jump_touch_screen_button_pressed"]
+[connection signal="released" from="JumpTouchScreenButton" to="." method="_on_jump_touch_screen_button_released"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

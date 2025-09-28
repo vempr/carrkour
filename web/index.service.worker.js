@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1759066049|15073872008';
+const CACHE_VERSION = '1759074560|21406078109';
 /** @type {string} */
 const CACHE_PREFIX = 'carrkour-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;

@@ -3,6 +3,10 @@ extends CanvasLayer
 @onready var start_menu = load("res://scenes/levels/level_0.tscn")
 
 
+func _ready() -> void:
+	$"../MobileMovement".mobile_pause.connect(_on_mobile_pause)
+
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause_game"):
 		triggerPause()
@@ -61,3 +65,7 @@ func triggerPause() -> void:
 		Globals.unpause_stopwatch()
 		
 	get_tree().paused = visible
+
+
+func _on_mobile_pause() -> void:
+	triggerPause()

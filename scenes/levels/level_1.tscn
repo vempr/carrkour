@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://bs58ku1twhubx"]
+[gd_scene load_steps=35 format=4 uid="uid://bs58ku1twhubx"]
 
 [ext_resource type="Script" uid="uid://dww8sgv35eeuh" path="res://scripts/level.gd" id="1_dnkej"]
 [ext_resource type="PackedScene" uid="uid://ba3bifom3fixp" path="res://scenes/hud.tscn" id="1_excbq"]
@@ -21,6 +21,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
 size = Vector2(79, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_np2pn"]
+size = Vector2(80, 110)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gee14"]
 distance = -119.0
@@ -484,7 +487,7 @@ position = Vector2(791.5, -272)
 shape = SubResource("RectangleShape2D_kvpfn")
 
 [node name="EnterButton" type="Button" parent="ProgressZone"]
-visible = false
+unique_name_in_owner = true
 offset_left = 771.0
 offset_top = -324.0
 offset_right = 813.0
@@ -496,7 +499,6 @@ text = "Enter"
 
 [node name="EButton" type="Button" parent="ProgressZone"]
 unique_name_in_owner = true
-visible = false
 offset_left = 785.0
 offset_top = -344.0
 offset_right = 800.0
@@ -509,16 +511,21 @@ text = "E"
 [node name="PortalAudioStream" type="AudioStreamPlayer" parent="ProgressZone"]
 unique_name_in_owner = true
 stream = ExtResource("6_mm8aj")
-volume_db = -5.0
+volume_db = -12.0
 
 [node name="GivePortalAudioStream" type="AudioStreamPlayer" parent="ProgressZone"]
 unique_name_in_owner = true
 stream = ExtResource("7_bahl2")
+volume_db = -3.0
 
 [node name="EnterPortalAudioStream" type="AudioStreamPlayer" parent="ProgressZone"]
 unique_name_in_owner = true
 stream = ExtResource("7_wtwp4")
-volume_db = -5.0
+volume_db = -7.0
+
+[node name="InteractTouchScreenButton" type="TouchScreenButton" parent="ProgressZone"]
+position = Vector2(791, -295)
+shape = SubResource("RectangleShape2D_np2pn")
 
 [node name="Killzone" parent="." instance=ExtResource("5_iwr0g")]
 process_mode = 1
@@ -763,3 +770,4 @@ stream = ExtResource("16_iwr0g")
 
 [connection signal="body_entered" from="ProgressZone" to="ProgressZone" method="_on_body_entered"]
 [connection signal="body_exited" from="ProgressZone" to="ProgressZone" method="_on_body_exited"]
+[connection signal="pressed" from="ProgressZone/InteractTouchScreenButton" to="ProgressZone" method="_on_interact_touch_screen_button_pressed"]

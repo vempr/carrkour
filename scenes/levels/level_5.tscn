@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://wjy5gevtip1g"]
+[gd_scene load_steps=20 format=4 uid="uid://wjy5gevtip1g"]
 
 [ext_resource type="Script" uid="uid://bmpbb2p8nmk3" path="res://scripts/the_end.gd" id="1_j14br"]
 [ext_resource type="FontFile" uid="uid://5rl5t366etfu" path="res://assets/fonts/PixelOperator8.ttf" id="2_0y7y4"]
@@ -18,6 +18,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
 size = Vector2(26, 96.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0y7y4"]
+size = Vector2(80, 110)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wsov"]
 texture = ExtResource("4_h717f")
@@ -287,6 +290,10 @@ theme_override_font_sizes/font_size = 8
 disabled = true
 text = "E"
 
+[node name="InteractTouchScreenButton" type="TouchScreenButton" parent="ProgressZone"]
+position = Vector2(985, -20)
+shape = SubResource("RectangleShape2D_0y7y4")
+
 [node name="TileMapLayers" type="Node2D" parent="."]
 
 [node name="BackBackgroundMapLayer" type="TileMapLayer" parent="TileMapLayers"]
@@ -535,3 +542,4 @@ autowrap_mode = 2
 
 [connection signal="body_entered" from="ProgressZone" to="ProgressZone" method="_on_body_entered"]
 [connection signal="body_exited" from="ProgressZone" to="ProgressZone" method="_on_body_exited"]
+[connection signal="pressed" from="ProgressZone/InteractTouchScreenButton" to="ProgressZone" method="_on_interact_touch_screen_button_pressed"]

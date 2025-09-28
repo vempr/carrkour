@@ -29,5 +29,8 @@ func _on_timer_timeout():
 		
 		Fade.fade_in()
 	else:
+		if Globals.current_level == 1:
+			Globals.elapsed_time = 0.0
+		
 		Engine.time_scale = 1.0
 		get_tree().reload_current_scene()

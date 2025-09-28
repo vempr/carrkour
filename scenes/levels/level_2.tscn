@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dxgbvm4x3dsk6"]
+[gd_scene load_steps=35 format=4 uid="uid://dxgbvm4x3dsk6"]
 
 [ext_resource type="Script" uid="uid://mb08tobr6npc" path="res://scripts/progress_zone.gd" id="1_brxtv"]
 [ext_resource type="PackedScene" uid="uid://ba3bifom3fixp" path="res://scenes/hud.tscn" id="1_nt80m"]
@@ -21,6 +21,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
 size = Vector2(79, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gw1l3"]
+size = Vector2(80, 110)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gee14"]
 distance = -460.0
@@ -516,16 +519,21 @@ text = "E"
 [node name="PortalAudioStream" type="AudioStreamPlayer" parent="ProgressZone"]
 unique_name_in_owner = true
 stream = ExtResource("6_r88tb")
-volume_db = -5.0
+volume_db = -12.0
 
 [node name="EnterPortalAudioStream" type="AudioStreamPlayer" parent="ProgressZone"]
 unique_name_in_owner = true
 stream = ExtResource("7_1yj8c")
-volume_db = -5.0
+volume_db = -7.0
 
 [node name="GivePortalAudioStream" type="AudioStreamPlayer" parent="ProgressZone"]
 unique_name_in_owner = true
 stream = ExtResource("8_v8d84")
+volume_db = -3.0
+
+[node name="InteractTouchScreenButton" type="TouchScreenButton" parent="ProgressZone"]
+position = Vector2(215, 74)
+shape = SubResource("RectangleShape2D_gw1l3")
 
 [node name="Killzone" parent="." instance=ExtResource("5_ndlae")]
 
@@ -889,3 +897,4 @@ stream = ExtResource("16_ndlae")
 
 [connection signal="body_entered" from="ProgressZone" to="ProgressZone" method="_on_body_entered"]
 [connection signal="body_exited" from="ProgressZone" to="ProgressZone" method="_on_body_exited"]
+[connection signal="pressed" from="ProgressZone/InteractTouchScreenButton" to="ProgressZone" method="_on_interact_touch_screen_button_pressed"]
