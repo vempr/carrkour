@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dxgbvm4x3dsk6"]
+[gd_scene load_steps=34 format=4 uid="uid://dxgbvm4x3dsk6"]
 
 [ext_resource type="Script" uid="uid://mb08tobr6npc" path="res://scripts/progress_zone.gd" id="1_brxtv"]
 [ext_resource type="PackedScene" uid="uid://ba3bifom3fixp" path="res://scenes/hud.tscn" id="1_nt80m"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://diuhbwb8gyhl" path="res://scenes/rabbit/walking_rabbit_free.tscn" id="11_sbygb"]
 [ext_resource type="PackedScene" uid="uid://f56irhkirxp8" path="res://scenes/rabbit/ground_rabbit.tscn" id="12_5niy6"]
 [ext_resource type="AudioStream" uid="uid://dlso040crvase" path="res://assets/music/Pix - Rose Garden.mp3" id="16_ndlae"]
+[ext_resource type="PackedScene" uid="uid://cqden131sqyoe" path="res://scenes/mobile_movement.tscn" id="18_gw1l3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
 size = Vector2(79, 64)
@@ -883,6 +884,8 @@ position = Vector2(88, -86)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_ndlae")
+
+[node name="MobileMovement" parent="." instance=ExtResource("18_gw1l3")]
 
 [connection signal="body_entered" from="ProgressZone" to="ProgressZone" method="_on_body_entered"]
 [connection signal="body_exited" from="ProgressZone" to="ProgressZone" method="_on_body_exited"]

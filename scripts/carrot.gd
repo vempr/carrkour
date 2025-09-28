@@ -8,6 +8,17 @@ const COYOTE_TIME = 0.1
 var flip_cooldown = 0.0
 var jump_buffer = 0.0
 var coyote_time = 0.0
+var move_input: int = 0
+
+
+func _ready() -> void:
+	$MobileMovement.mobile_left_down.connect(_on_mobile_left_down)
+	$MobileMovement.mobile_left_up.connect(_on_mobile_left_up)
+	$MobileMovement.mobile_right_down.connect(_on_mobile_right_down)
+	$MobileMovement.mobile_right_up.connect(_on_mobile_right_up)
+	$MobileMovement.mobile_jump_down.connect(_on_mobile_jump_down)
+	$MobileMovement.mobile_jump_up.connect(_on_mobile_jump_up)
+
 
 
 func _physics_process(delta: float) -> void:
@@ -37,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		jump_buffer = 0
 		coyote_time = 0
 
-	var direction := Input.get_axis("move_left", "move_right")
+	var direction := Input.get_axis("move_left", "move_right") + move_input
 
 	if not is_on_floor():
 		%Sprite.play("walk")
@@ -60,4 +71,29 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+
+func _on_mobile_left_down() -> void:
+	move_input -= 1
+
+
+func _on_mobile_left_up() -> void:
+	move_input += 1
+
+
+func _on_mobile_right_down() -> void:
+	move_input += 1
+
+
+func _on_mobile_right_up() -> void:
+	move_input -= 1
+
+
+func _on_mobile_jump_down() -> void:
+	jump_buffer = JUMP_BUFFER_TIME
+
+
+func _on_mobile_jump_up() -> void:
+	pass
+
 	

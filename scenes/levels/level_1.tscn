@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bs58ku1twhubx"]
+[gd_scene load_steps=34 format=4 uid="uid://bs58ku1twhubx"]
 
 [ext_resource type="Script" uid="uid://dww8sgv35eeuh" path="res://scripts/level.gd" id="1_dnkej"]
 [ext_resource type="PackedScene" uid="uid://ba3bifom3fixp" path="res://scenes/hud.tscn" id="1_excbq"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://diuhbwb8gyhl" path="res://scenes/rabbit/walking_rabbit_free.tscn" id="11_ndtll"]
 [ext_resource type="PackedScene" uid="uid://f56irhkirxp8" path="res://scenes/rabbit/ground_rabbit.tscn" id="12_7h2jl"]
 [ext_resource type="AudioStream" uid="uid://c70c1umpym5v6" path="res://assets/music/Searching for a Body.mp3" id="16_iwr0g"]
+[ext_resource type="PackedScene" uid="uid://cqden131sqyoe" path="res://scenes/mobile_movement.tscn" id="18_np2pn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
 size = Vector2(79, 64)
@@ -757,6 +758,8 @@ position = Vector2(744, -230)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_iwr0g")
+
+[node name="MobileMovement" parent="." instance=ExtResource("18_np2pn")]
 
 [connection signal="body_entered" from="ProgressZone" to="ProgressZone" method="_on_body_entered"]
 [connection signal="body_exited" from="ProgressZone" to="ProgressZone" method="_on_body_exited"]

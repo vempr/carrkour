@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bhql81cnpys4t"]
+[gd_scene load_steps=30 format=4 uid="uid://bhql81cnpys4t"]
 
 [ext_resource type="Script" uid="uid://dww8sgv35eeuh" path="res://scripts/level.gd" id="1_f6egh"]
 [ext_resource type="Script" uid="uid://mb08tobr6npc" path="res://scripts/progress_zone.gd" id="1_qi5uv"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://diuhbwb8gyhl" path="res://scenes/rabbit/walking_rabbit_free.tscn" id="11_o3ttr"]
 [ext_resource type="PackedScene" uid="uid://f56irhkirxp8" path="res://scenes/rabbit/ground_rabbit.tscn" id="12_kdsi4"]
 [ext_resource type="AudioStream" uid="uid://cb72dykg4vkpu" path="res://assets/music/My Best Friend is a Dog.mp3" id="15_apo5x"]
+[ext_resource type="PackedScene" uid="uid://cqden131sqyoe" path="res://scenes/mobile_movement.tscn" id="17_lgrx1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
 size = Vector2(79, 64)
@@ -928,6 +929,8 @@ position = Vector2(-456, -364)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_apo5x")
+
+[node name="MobileMovement" parent="." instance=ExtResource("17_lgrx1")]
 
 [connection signal="body_entered" from="ProgressZone" to="ProgressZone" method="_on_body_entered"]
 [connection signal="body_exited" from="ProgressZone" to="ProgressZone" method="_on_body_exited"]

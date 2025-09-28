@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqden131sqyoe"]
+
+[ext_resource type="Script" uid="uid://blp4qstw0j8s4" path="res://scripts/mobile_movement.gd" id="1_bjaee"]
+[ext_resource type="FontFile" uid="uid://5rl5t366etfu" path="res://assets/fonts/PixelOperator8.ttf" id="2_tyxxt"]
+
+[node name="MobileMovement" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_bjaee")
+
+[node name="LeftButton" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 457.0
+offset_right = 185.0
+offset_bottom = 627.0
+theme_override_fonts/font = ExtResource("2_tyxxt")
+theme_override_font_sizes/font_size = 120
+text = "<"
+
+[node name="RightButton" type="Button" parent="."]
+offset_left = 208.0
+offset_top = 457.0
+offset_right = 358.0
+offset_bottom = 627.0
+theme_override_fonts/font = ExtResource("2_tyxxt")
+theme_override_font_sizes/font_size = 120
+text = ">"
+
+[node name="JumpButton" type="Button" parent="."]
+offset_left = 927.0
+offset_top = 457.0
+offset_right = 1110.0
+offset_bottom = 627.0
+theme_override_fonts/font = ExtResource("2_tyxxt")
+theme_override_font_sizes/font_size = 120
+text = "J"
+
+[connection signal="button_down" from="LeftButton" to="." method="_on_left_button_button_down"]
+[connection signal="button_up" from="LeftButton" to="." method="_on_left_button_button_up"]
+[connection signal="button_down" from="RightButton" to="." method="_on_right_button_button_down"]
+[connection signal="button_up" from="RightButton" to="." method="_on_right_button_button_up"]
+[connection signal="button_down" from="JumpButton" to="." method="_on_jump_button_button_down"]
+[connection signal="button_up" from="JumpButton" to="." method="_on_jump_button_button_up"]

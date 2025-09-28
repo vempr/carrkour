@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://borf3xt1q6pb4"]
+[gd_scene load_steps=40 format=4 uid="uid://borf3xt1q6pb4"]
 
 [ext_resource type="Script" uid="uid://mb08tobr6npc" path="res://scripts/progress_zone.gd" id="1_4wsov"]
 [ext_resource type="Script" uid="uid://dww8sgv35eeuh" path="res://scripts/level.gd" id="1_pmra4"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://f56irhkirxp8" path="res://scenes/rabbit/ground_rabbit.tscn" id="11_05se8"]
 [ext_resource type="PackedScene" uid="uid://cunh58f0qymin" path="res://scenes/platform/platform_blue.tscn" id="13_hsvsk"]
 [ext_resource type="AudioStream" uid="uid://68olv6q17k74" path="res://assets/music/Big Helmet.mp3" id="17_1bx01"]
+[ext_resource type="PackedScene" uid="uid://cqden131sqyoe" path="res://scenes/mobile_movement.tscn" id="18_vq5n0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
 size = Vector2(79, 64)
@@ -1130,6 +1131,8 @@ position = Vector2(-501, -268)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_1bx01")
+
+[node name="MobileMovement" parent="." instance=ExtResource("18_vq5n0")]
 
 [connection signal="body_entered" from="ProgressZone" to="ProgressZone" method="_on_body_entered"]
 [connection signal="body_exited" from="ProgressZone" to="ProgressZone" method="_on_body_exited"]

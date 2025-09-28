@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://wjy5gevtip1g"]
+[gd_scene load_steps=19 format=4 uid="uid://wjy5gevtip1g"]
 
 [ext_resource type="Script" uid="uid://bmpbb2p8nmk3" path="res://scripts/the_end.gd" id="1_j14br"]
 [ext_resource type="FontFile" uid="uid://5rl5t366etfu" path="res://assets/fonts/PixelOperator8.ttf" id="2_0y7y4"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dod21cnl1jo23" path="res://scenes/vegetables/radish.tscn" id="12_orjhg"]
 [ext_resource type="PackedScene" uid="uid://bn6ciq1s3s3ra" path="res://scenes/vegetables/spinach.tscn" id="13_3j2bn"]
 [ext_resource type="PackedScene" uid="uid://bkuv7p6cxeqj1" path="res://scenes/vegetables/turnip.tscn" id="14_lolfx"]
+[ext_resource type="PackedScene" uid="uid://cqden131sqyoe" path="res://scenes/mobile_movement.tscn" id="15_0y7y4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
 size = Vector2(26, 96.5)
@@ -175,7 +176,7 @@ texture = ExtResource("4_h717f")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4wsov")
 
-[node name="Level4" type="Node2D"]
+[node name="Level5" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_j14br")
 
@@ -529,6 +530,8 @@ theme_override_font_sizes/font_size = 12
 text = "I got home in 00:00:00 after dying 5 times."
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="MobileMovement" parent="." instance=ExtResource("15_0y7y4")]
 
 [connection signal="body_entered" from="ProgressZone" to="ProgressZone" method="_on_body_entered"]
 [connection signal="body_exited" from="ProgressZone" to="ProgressZone" method="_on_body_exited"]
