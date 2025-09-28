@@ -3,6 +3,7 @@ extends Node2D
 @onready var level_one = load("res://scenes/levels/level_1.tscn")
 @onready var level_two = load("res://scenes/levels/level_2.tscn")
 @onready var level_three = load("res://scenes/levels/level_3.tscn")
+@onready var level_four = load("res://scenes/levels/level_4.tscn")
 
 
 func _pause_children(state: bool) -> void:
@@ -38,6 +39,8 @@ func play_practice_mode(level: int) -> void:
 			get_tree().change_scene_to_packed(level_two)
 		3:
 			get_tree().change_scene_to_packed(level_three)
+		4:
+			get_tree().change_scene_to_packed(level_four)
 	
 	await Fade.fade_in().finished
 	_pause_children(false)
@@ -53,3 +56,7 @@ func _on_button_level_2_pressed() -> void:
 
 func _on_button_level_3_pressed() -> void:
 	play_practice_mode(3)
+
+
+func _on_button_level_4_pressed() -> void:
+	play_practice_mode(4)

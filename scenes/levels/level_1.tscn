@@ -615,7 +615,7 @@ tile_set = SubResource("TileSet_dnkej")
 
 [node name="Carrot" parent="." instance=ExtResource("7_np2pn")]
 unique_name_in_owner = true
-position = Vector2(708, -261)
+position = Vector2(2, 78)
 
 [node name="Coins" type="Node2D" parent="."]
 
