@@ -4,17 +4,21 @@ extends Node2D
 
 
 func _ready() -> void:
+	Fade.fade_in()
 	%ProgressZone.progress_to_next_level.connect(_on_progress_to_next_level)
 	%ResultsLabel.self_modulate.a = 0.0
 	
 	if Globals.is_in_hardcore_mode == true:
 		$AudioStreamPlayer.pitch_scale = 0.7
+		$AudioStreamPlayer.play()
+		
 		%HardcoreTexts.visible = true
 		%MiddlegroundHardcoreMapLayer.visible = true
 		%ResultsLabel.text = Globals.get_elapsed_time_string()
 	else:
 		%Animals.visible = true
 		%Vegetables.visible = true
+		
 		%Texts.visible = true
 		%BackBackgroundMapLayer.visible = true
 		%MiddlegroundMapLayer.visible = true

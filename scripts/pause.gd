@@ -16,6 +16,8 @@ func _pause_children(state: bool) -> void:
 
 
 func _on_button_main_menu_pressed() -> void:
+	Globals.pause_stopwatch()
+	
 	_pause_children(true)
 	await Fade.fade_out().finished
 	get_tree().paused = false
@@ -29,6 +31,8 @@ func _on_button_main_menu_pressed() -> void:
 
 
 func _on_button_restart_pressed() -> void:
+	Globals.pause_stopwatch()
+	
 	_pause_children(true)
 	await Fade.fade_out().finished
 	get_tree().paused = false
@@ -36,6 +40,9 @@ func _on_button_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 
 	Globals.reset()
+	
+	if Globals.current_level == 1:
+		Globals.elapsed_time = 0.0
 
 	await Fade.fade_in().finished
 	_pause_children(false)
@@ -47,4 +54,10 @@ func _on_button_continue_pressed() -> void:
 
 func triggerPause() -> void:
 	visible = !visible
+	
+	if visible == true:
+		Globals.pause_stopwatch()
+	else:
+		Globals.unpause_stopwatch()
+		
 	get_tree().paused = visible

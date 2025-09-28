@@ -5,18 +5,23 @@ extends Node2D
 
 func _ready() -> void:
 	Globals.reset()
+	await Fade.fade_in().finished
+	Globals.unpause_stopwatch()
 	
 	%ProgressZone.progress_to_next_level.connect(_on_progress_to_next_level)
 	if Globals.is_in_hardcore_mode == true:
 		$AudioStreamPlayer.pitch_scale = 0.7
+	$AudioStreamPlayer.play()
 
 
 func _on_progress_to_next_level() -> void:
+	Globals.pause_stopwatch()
 	_pause_children(true)
 	await Fade.fade_out().finished
 	
 	if Globals.is_in_practice_mode == true:
 		get_tree().change_scene_to_packed(start_menu)
+		Fade.fade_in()
 	else:
 		get_tree().change_scene_to_packed(next_level)
 		Globals.current_level += 1
@@ -24,8 +29,6 @@ func _on_progress_to_next_level() -> void:
 			Globals.game_won = true
 			
 	Globals.reset()
-
-	await Fade.fade_in().finished
 	_pause_children(false)
 
 

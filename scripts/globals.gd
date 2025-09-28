@@ -9,8 +9,9 @@ var game_started = false
 var game_won = true
 
 var dead = false
-var start_time: int
+var start_time: float
 var elapsed_time: float = 0.0
+var paused: bool = true
 
 var current_level = 1
 
@@ -20,7 +21,7 @@ var suns_given = 9
 
 
 func _process(_delta: float) -> void:
-	if game_started == true && game_won == false:
+	if game_started == true && game_won == false && paused == false:
 		elapsed_time = (Time.get_ticks_usec() - start_time) / 1_000_000.0
 
 
@@ -43,12 +44,15 @@ func get_elapsed_time_string() -> String:
 		return "%02d:%02d:%03d" % [minutes, seconds, milliseconds]
 
 
-func start_stopwatch() -> void:
-	start_time = Time.get_ticks_usec()
-	game_started = true
-	game_won = false
-	elapsed_time = 0.0
+func unpause_stopwatch() -> void:
+	start_time = Time.get_ticks_usec() - int(elapsed_time * 1_000_000.0)
+	paused = false
+	
 
+func pause_stopwatch() -> void:
+	elapsed_time = (Time.get_ticks_usec() - start_time) / 1_000_000.0
+	paused = true
+		
 
 func debug() -> void:
 	print(Globals.SUN_REQUIREMENT)

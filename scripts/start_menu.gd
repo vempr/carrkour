@@ -7,7 +7,9 @@ extends Node2D
 
 
 func _ready() -> void:
+	Globals.elapsed_time = 0.0
 	Globals.is_in_hardcore_mode = false
+	Globals.is_in_practice_mode = false
 	Engine.time_scale = 1.0
 
 
@@ -22,11 +24,12 @@ func _on_adventure_mode_button_pressed() -> void:
 	_pause_children(true)
 	await Fade.fade_out().finished
 	
+	Globals.game_started = true
+	Globals.game_won = false
 	Globals.current_level = 1
-	Globals.start_stopwatch()
+	
 
 	get_tree().change_scene_to_packed(level_one)
-	await Fade.fade_in().finished
 	_pause_children(false)
 	
 
@@ -34,8 +37,9 @@ func play_practice_mode(level: int) -> void:
 	_pause_children(true)
 	await Fade.fade_out().finished
 	
+	Globals.game_started = true
+	Globals.game_won = false
 	Globals.is_in_practice_mode = true
-	Globals.start_stopwatch()
 
 	match level:
 		1:
@@ -47,7 +51,6 @@ func play_practice_mode(level: int) -> void:
 		4:
 			get_tree().change_scene_to_packed(level_four)
 	
-	await Fade.fade_in().finished
 	_pause_children(false)
 
 
