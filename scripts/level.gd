@@ -4,7 +4,11 @@ extends Node2D
 @onready var start_menu = load("res://scenes/levels/level_0.tscn")
 
 func _ready() -> void:
+	Globals.reset()
+	
 	%ProgressZone.progress_to_next_level.connect(_on_progress_to_next_level)
+	if Globals.is_in_hardcore_mode == true:
+		$AudioStreamPlayer.pitch_scale = 0.7
 
 
 func _on_progress_to_next_level() -> void:

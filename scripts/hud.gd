@@ -4,7 +4,10 @@ extends CanvasLayer
 func _ready() -> void:
 	%ProgressZone.sun_area_entered.connect(_on_sun_area_entered)
 	%ProgressZone.sun_area_exited.connect(_on_sun_area_exited)
-
+	
+	if Globals.is_in_hardcore_mode == true:
+		%HardcoreHue.visible = true
+		%HardcoreLabel.visible = true
 
 func _process(_delta: float) -> void:
 	if Globals.dead == true:

@@ -238,6 +238,36 @@ autoplay = "new_animation"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -20.0
+offset_right = 220.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AdventureModeButton" type="Button" parent="CanvasLayer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_myogd")
+theme_override_font_sizes/font_size = 18
+text = "Adventure Mode"
+
+[node name="HardcoreModeButton" type="Button" parent="CanvasLayer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.756863, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.831373, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.729412, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.870588, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_myogd")
+theme_override_font_sizes/font_size = 18
+text = "Hardcore Mode"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -277,22 +307,6 @@ theme_override_fonts/font = ExtResource("4_myogd")
 theme_override_font_sizes/font_size = 10
 text = "Level 4
 "
-
-[node name="AdventureModeButton" type="Button" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -187.5
-offset_top = -23.0
-offset_right = 187.5
-offset_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_myogd")
-theme_override_font_sizes/font_size = 22
-text = "Start Adventure Mode"
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
@@ -335,17 +349,14 @@ theme_override_font_sizes/font_size = 18
 text = "Practice Mode:"
 
 [node name="Label3" type="Label" parent="CanvasLayer"]
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -560.0
-offset_top = -302.0
-offset_right = 558.0
-offset_bottom = -201.0
+offset_left = -559.0
+offset_top = 19.0
+offset_right = 559.0
+offset_bottom = 120.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
@@ -355,8 +366,6 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_3mnpy")
 text = "In a world where gardens stretch like kingdoms and every root hides a secret, you are no ordinary carrot. Torn from the safety of your soil-home by mischievous winds of fate, you’ve awakened far from your farm, with only your courage and your sprightly orange legs to carry you back. The path is perilous: towering ledges of earth, treacherous pits, and sly rabbits with gleaming teeth who hunger for your tender flesh. But there is hope—shards of sunlight, scattered across the land, glowing with the power to guide and strengthen you. Gather them, leap past danger, and outwit your foes, for only then will you return to the warm earth of your farm, where your journey began."
 autowrap_mode = 2
-
-[node name="PracticeModeLevels" type="Node2D" parent="CanvasLayer"]
 
 [node name="TileMapLayers" type="Node2D" parent="."]
 
@@ -429,9 +438,9 @@ rotation = -1.5708
 position = Vector2(1018, 456)
 rotation = -1.5708
 
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/AdventureModeButton" to="." method="_on_adventure_mode_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/HardcoreModeButton" to="." method="_on_hardcore_mode_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/ButtonLevel1" to="." method="_on_button_level_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/ButtonLevel2" to="." method="_on_button_level_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/ButtonLevel3" to="." method="_on_button_level_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/ButtonLevel4" to="." method="_on_button_level_4_pressed"]
-[connection signal="pressed" from="CanvasLayer/AdventureModeButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/AdventureModeButton" to="." method="_on_adventure_mode_button_pressed"]

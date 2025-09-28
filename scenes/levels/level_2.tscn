@@ -633,7 +633,7 @@ tile_map_data = PackedByteArray("AAAvAPD/AAADAAgAAAAzAPD/AAADAAcAAAAvAO//AAADAAc
 tile_set = SubResource("TileSet_tv7cl")
 
 [node name="Carrot" parent="." instance=ExtResource("7_gw1l3")]
-position = Vector2(-54, 22)
+position = Vector2(131, -137)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -881,7 +881,7 @@ position = Vector2(72, -86)
 [node name="Rabbit40" parent="Rabbits/GroundRabbits" instance=ExtResource("12_5niy6")]
 position = Vector2(88, -86)
 
-[node name="Pix-RoseGarden" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_ndlae")
 autoplay = true
 

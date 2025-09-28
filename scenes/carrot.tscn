@@ -86,4 +86,4 @@ position_smoothing_enabled = true
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_mb1r7")
-volume_db = -15.0
+volume_db = -20.0

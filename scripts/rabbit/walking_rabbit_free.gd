@@ -1,7 +1,12 @@
 extends Node2D
 
-const SPEED = 60
+var SPEED = 60
 var direction = 1
+
+
+func _ready() -> void:
+	if Globals.is_in_hardcore_mode == true:
+		SPEED = 80
 
 
 func _process(delta: float) -> void:

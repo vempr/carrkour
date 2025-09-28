@@ -7,10 +7,23 @@ func _ready() -> void:
 	%ProgressZone.progress_to_next_level.connect(_on_progress_to_next_level)
 	%ResultsLabel.self_modulate.a = 0.0
 	
-	if Globals.deaths > 0:
-		%ResultsLabel.text = "I got home in " + Globals.get_elapsed_time_string() + " after dying " + str(Globals.deaths) + " times."
+	if Globals.is_in_hardcore_mode == true:
+		$AudioStreamPlayer.pitch_scale = 0.7
+		%HardcoreTexts.visible = true
+		%MiddlegroundHardcoreMapLayer.visible = true
+		%ResultsLabel.text = Globals.get_elapsed_time_string()
 	else:
-		%ResultsLabel.text = "I got home in " + Globals.get_elapsed_time_string() + "."
+		%Animals.visible = true
+		%Vegetables.visible = true
+		%Texts.visible = true
+		%BackBackgroundMapLayer.visible = true
+		%MiddlegroundMapLayer.visible = true
+		
+		if Globals.deaths > 0:
+			%ResultsLabel.text = "I got home in " + Globals.get_elapsed_time_string() + " after dying " + str(Globals.deaths) + " times."
+		else:
+			%ResultsLabel.text = "I got home in " + Globals.get_elapsed_time_string() + "."
+
 
 func _on_progress_to_next_level() -> void:
 	%Carrot.visible = false;

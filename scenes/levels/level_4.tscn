@@ -712,7 +712,7 @@ tile_map_data = PackedByteArray("AAAvAPD/AAADAAgAAAAzAPD/AAADAAcAAAAvAO//AAADAAc
 tile_set = SubResource("TileSet_2bnyt")
 
 [node name="Carrot" parent="." instance=ExtResource("6_pmra4")]
-position = Vector2(162, -312)
+position = Vector2(815, -350)
 
 [node name="Coins" type="Node2D" parent="."]
 

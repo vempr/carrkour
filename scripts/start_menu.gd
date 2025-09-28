@@ -6,6 +6,11 @@ extends Node2D
 @onready var level_four = load("res://scenes/levels/level_4.tscn")
 
 
+func _ready() -> void:
+	Globals.is_in_hardcore_mode = false
+	Engine.time_scale = 1.0
+
+
 func _pause_children(state: bool) -> void:
 	for child in get_children():
 		if child != Fade:
@@ -60,3 +65,8 @@ func _on_button_level_3_pressed() -> void:
 
 func _on_button_level_4_pressed() -> void:
 	play_practice_mode(4)
+
+
+func _on_hardcore_mode_button_pressed() -> void:
+	Globals.is_in_hardcore_mode = true
+	_on_adventure_mode_button_pressed()
